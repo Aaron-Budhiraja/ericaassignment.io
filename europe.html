@@ -224,11 +224,11 @@
             const blogElement = document.getElementById(blogId);
             const textToSpeak = blogElement.innerText;
             
-            // Cancel any ongoing speech
+            
             window.speechSynthesis.cancel();
             
             const utterance = new SpeechSynthesisUtterance(textToSpeak);
-            utterance.rate = 0.9; // Slightly slower than default
+            utterance.rate = 0.9;
             utterance.pitch = 1;
             
             window.speechSynthesis.speak(utterance);
