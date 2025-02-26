@@ -57,9 +57,9 @@
 </main>
 <body>
     <section id="big">
-        <h3 style="font-size: 270px;">Oceania</h3>
+        <h3 style="font-size: 450px;">Oceania</h3>
     </section>
-    <section style="margin-top: -180px;" id="content-section">
+    <section style="margin-top: -250px;" id="content-section">
         <div class="content-container">
             <div class="text-container">
                 <h2>My Journeys around Oceania</h2>
@@ -103,7 +103,7 @@
             <p><strong>Spring (September-November)</strong> - Temperature ranges from 12-18°C (54-64°F). Highlights: Wildflowers, lambing season. Advantages: Mild temperatures, waterfalls at full flow. Considerations: Can be windy, occasional cold snaps.</p>
 
             <div class="button-container">
-                <a href="https://www.tripadvisor.com/Flights-g255104-New_Zealand-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+                <a href="https://www.airnewzealand.com/flights-to-new-zealand" class="read-more">How to Get There</a>
             </div>
         </div>
         
@@ -184,5 +184,20 @@
             <p>&copy; 2024 Erica's Travel Blog. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        function speakBlogContent(blogId) {
+            const blogElement = document.getElementById(blogId);
+            const textToSpeak = blogElement.innerText;
+            
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.rate = 0.9; // Slightly slower than default
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
 </body>
 </html>

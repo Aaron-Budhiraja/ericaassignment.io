@@ -42,7 +42,7 @@
 </main>
 <body>
     <section id="big">
-        <h3 style="font-size: 330px;">Europe</h3>  
+        <h3>Europe</h3>  
     </section>
     <section id="content-section">
         <div class="content-container">
@@ -89,6 +89,9 @@
 
             <div class="button-container">
                 <a href="https://www.tripadvisor.com/Flights-g187514-Madrid-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+                <button onclick="speakBlogContent('madrid')" class="read-more">
+                    <i class="fas fa-volume-up"></i> Listen to Blog
+                </button>
             </div>
         </div>
         
@@ -134,6 +137,9 @@
 
             <div class="button-container">
                 <a href="https://www.tripadvisor.com/Flights-g187791-Rome_Lazio-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+                <button onclick="speakBlogContent('rome')" class="read-more">
+                    <i class="fas fa-volume-up"></i> Listen to Blog
+                </button>
             </div>
         </div>
     
@@ -213,5 +219,20 @@
             <p>&copy; 2024 Erica's Travel Blog. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        function speakBlogContent(blogId) {
+            const blogElement = document.getElementById(blogId);
+            const textToSpeak = blogElement.innerText;
+            
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.rate = 0.9; // Slightly slower than default
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
 </body>
 </html>

@@ -42,7 +42,7 @@
 </main>
 <body>
     <section id="big">
-        <h3 style="font-size: 370px;">Asia</h3>  
+        <h3>Asia</h3>  
     </section>
     <section id="content-section">
         <div class="content-container">
@@ -89,6 +89,9 @@
 
             <div class="button-container">
                 <a href="https://www.tripadvisor.com/Flights-g298484-Moscow_Central_Russia-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+                <button onclick="speakBlogContent('moscow')" class="read-more">
+                    <i class="fas fa-volume-up"></i> Listen to Blog
+                </button>
             </div>
         </div>
         
@@ -134,6 +137,9 @@
 
             <div class="button-container">
                 <a href="https://www.tripadvisor.com/Flights-g664891-Macau-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+                <button onclick="speakBlogContent('macau')" class="read-more">
+                    <i class="fas fa-volume-up"></i> Listen to Blog
+                </button>
             </div>
         </div>
     
@@ -184,9 +190,13 @@
 
             <h4>Travel Tips</h4>
             <p>Get an Octopus Card immediately upon arrival for convenient travel. The MTR runs from 6 AM to 1 AM, and the Airport Express offers free hotel shuttles. Avoid taxis during rush hour for better efficiency and cost savings.</p>
-        </div>
-        <div class="button-container">
-            <a href="https://www.tripadvisor.com/Flights-g664891-Macau-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+
+            <div class="button-container">
+                <a href="https://www.tripadvisor.com/Flights-g664891-Macau-Cheap_Discount_Airfares.html" class="read-more">How to Get There</a>
+                <button onclick="speakBlogContent('hongkong')" class="read-more">
+                    <i class="fas fa-volume-up"></i> Listen to Blog
+                </button>
+            </div>
         </div>
         <div class="social-interactions">
             <div class="interaction">
@@ -256,5 +266,20 @@
             <p>&copy; 2024 Erica's Travel Blog. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        function speakBlogContent(blogId) {
+            const blogElement = document.getElementById(blogId);
+            const textToSpeak = blogElement.innerText;
+            
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.rate = 0.9; // Slightly slower than default
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
 </body>
 </html>
